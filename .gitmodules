@@ -7,3 +7,6 @@
 [submodule "vim/bundle/ctrlp"]
 	path = vim/bundle/ctrlp
 	url = http://github.com/kien/ctrlp.vim.git
+[submodule "vim/bundle/vim-python-combined"]
+	path = vim/bundle/vim-python-combined
+	url = http://github.com/mitsuhiko/vim-python-combined.git
