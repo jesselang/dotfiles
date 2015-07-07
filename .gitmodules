@@ -16,3 +16,6 @@
 [submodule "vim/bundle/vim-javascript"]
 	path = vim/bundle/vim-javascript
 	url = http://github.com/pangloss/vim-javascript.git
+[submodule "vim/bundle/inkpot"]
+	path = vim/bundle/inkpot
+	url = http://github.com/ciaranm/inkpot.git
