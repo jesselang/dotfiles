@@ -7,4 +7,7 @@ syntax on
 filetype plugin indent on
 
 " vim-airline looks color-less without this term profile set.
+" inkpot also needs this.
 set term=xterm-256color
+
+colorscheme inkpot
