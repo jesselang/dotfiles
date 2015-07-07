@@ -1,7 +1,6 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
-let g:airline#extensions#tabline#enabled = 1
 
 syntax on
 filetype plugin indent on
@@ -27,4 +26,3 @@ set smartindent
 set smarttab
 set softtabstop=4
 set tabstop=4
-
