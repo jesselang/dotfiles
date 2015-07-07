@@ -19,3 +19,6 @@
 [submodule "vim/bundle/inkpot"]
 	path = vim/bundle/inkpot
 	url = http://github.com/ciaranm/inkpot.git
+[submodule "vim/bundle/vim-gitgutter"]
+	path = vim/bundle/vim-gitgutter
+	url = http://github.com/airblade/vim-gitgutter.git
