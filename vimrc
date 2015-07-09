@@ -26,3 +26,17 @@ set smartindent
 set smarttab
 set softtabstop=4
 set tabstop=4
+
+
+autocmd BufRead,BufNewFile *.css setlocal ts=2 sw=2 sts=2
+autocmd BufRead,BufNewFile *.html setlocal ts=2 sw=2 sts=2
+autocmd BufRead,BufNewFile *.jinja setlocal ft=htmljinja ts=2 sw=2 sts=2
+autocmd BufRead,BufNewFile *.js setlocal ts=2 sw=2 sts=2
+autocmd BufRead,BufNewFile *.less setlocal ft=less ts=2 sw=2 sts=2
+autocmd BufRead,BufNewFile *.md setlocal ft=markdown
+autocmd BufRead,BufNewFile *.tst setlocal syntax=perl
+autocmd BufRead,BufNewFile *.txt setlocal printoptions+=number:n
+autocmd BufRead,BufNewFile *.scss setlocal ft=scss ts=2 sw=2 sts=2
+autocmd BufRead,BufNewFile Build* setlocal noexpandtab filetype=make syntax=make
+autocmd BufRead,BufNewFile [Mm]ake* setlocal noexpandtab filetype=make syntax=make
+autocmd FileType crontab set backupcopy=yes
