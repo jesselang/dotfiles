@@ -41,6 +41,9 @@ autocmd BufRead,BufNewFile Build* setlocal noexpandtab filetype=make syntax=make
 autocmd BufRead,BufNewFile [Mm]ake* setlocal noexpandtab filetype=make syntax=make
 autocmd FileType crontab set backupcopy=yes
 
+" Remove all trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
+
 " ctrlp (fuzzy file/buf matching)
 let g:ctrlp_custom_ignore = {
     \ 'dir': '\v[\/]migrations$',
