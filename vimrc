@@ -40,3 +40,10 @@ autocmd BufRead,BufNewFile *.scss setlocal ft=scss ts=2 sw=2 sts=2
 autocmd BufRead,BufNewFile Build* setlocal noexpandtab filetype=make syntax=make
 autocmd BufRead,BufNewFile [Mm]ake* setlocal noexpandtab filetype=make syntax=make
 autocmd FileType crontab set backupcopy=yes
+
+" ctrlp (fuzzy file/buf matching)
+let g:ctrlp_custom_ignore = {
+    \ 'dir': '\v[\/]migrations$',
+    \ }
+let g:ctrlp_use_caching = 1
+let g:ctrlp_clear_cache_on_exit = 0
