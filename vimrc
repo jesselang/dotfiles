@@ -8,6 +8,7 @@ scriptencoding utf-8
 
 set noswapfile
 set title
+set laststatus=2
 
 " vim-airline looks color-less without this term profile set.
 " inkpot also needs this.
