@@ -9,6 +9,7 @@ scriptencoding utf-8
 set noswapfile
 set title
 set laststatus=2
+set spell spelllang=en_us
 
 " vim-airline looks color-less without this term profile set.
 " inkpot also needs this.
