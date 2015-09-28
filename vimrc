@@ -1,7 +1,6 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
-
 syntax on
 filetype plugin indent on
 scriptencoding utf-8
@@ -13,9 +12,12 @@ set spell spelllang=en_us
 
 " vim-airline looks color-less without this term profile set.
 " inkpot also needs this.
-set term=xterm-256color
+"set term=xterm-256color
+"colorscheme inkpot
 
-colorscheme inkpot
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
 
 " style/formatting
 set autoindent
