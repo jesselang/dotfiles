@@ -1,23 +1,14 @@
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
-
 syntax on
 filetype plugin indent on
 scriptencoding utf-8
 
+set term=xterm-256color
 set noswapfile
 set title
 set laststatus=2
 set spell spelllang=en_us
-
-" vim-airline looks color-less without this term profile set.
-" inkpot also needs this.
-"set term=xterm-256color
-"colorscheme inkpot
-
 set background=dark
-let g:solarized_termcolors=256
-colorscheme solarized
+
 
 " style/formatting
 set autoindent
@@ -47,6 +38,22 @@ autocmd FileType crontab set backupcopy=yes
 
 " Remove all trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
+
+"
+" plugins
+"
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+
+"colorscheme inkpot
+
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+colorscheme solarized
+
+let g:airline_detect_modified = 1
+let g:airline_detect_paste = 1
+"let g:airline_theme='badwolf'
 
 " ctrlp (fuzzy file/buf matching)
 let g:ctrlp_custom_ignore = {
