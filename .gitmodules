@@ -37,3 +37,6 @@
 [submodule "vim/bundle/Ada-Bundle"]
 	path = vim/bundle/Ada-Bundle
 	url = http://github.com/vim-scripts/Ada-Bundle
+[submodule "vim/bundle/ansible-vim"]
+	path = vim/bundle/ansible-vim
+	url = http://github.com/pearofducks/ansible-vim.git
