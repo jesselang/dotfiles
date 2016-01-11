@@ -34,3 +34,6 @@
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
 	url = http://github.com/tpope/vim-fugitive.git
+[submodule "vim/bundle/Ada-Bundle"]
+	path = vim/bundle/Ada-Bundle
+	url = http://github.com/vim-scripts/Ada-Bundle
