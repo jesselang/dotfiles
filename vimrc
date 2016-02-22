@@ -22,6 +22,7 @@ set smarttab
 set softtabstop=4
 set tabstop=4
 
+set mouse=a
 
 autocmd BufRead,BufNewFile *.css setlocal ts=2 sw=2 sts=2
 autocmd BufRead,BufNewFile *.html setlocal ts=2 sw=2 sts=2
