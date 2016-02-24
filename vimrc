@@ -2,7 +2,7 @@ syntax on
 filetype plugin indent on
 scriptencoding utf-8
 
-set term=xterm-256color
+"set term=xterm-256color
 set noswapfile
 set title
 set laststatus=2
@@ -45,8 +45,35 @@ autocmd BufWritePre * :%s/\s\+$//e
 "
 " plugins
 "
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+" Make sure you use single quotes
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'kien/ctrlp.vim'
+Plug 'mitsuhiko/vim-python-combined'
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+"Plug 'ciaranm/inkpot'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-surround'
+Plug 'mitsuhiko/vim-jinja'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-scripts/Ada-Bundle'
+Plug 'pearofducks/ansible-vim'
+
+" Add plugins to &runtimepath
+call plug#end()
+
+"runtime bundle/vim-pathogen/autoload/pathogen.vim
+"execute pathogen#infect()
 
 "colorscheme inkpot
 
@@ -71,7 +98,7 @@ let g:airline#extensions#whitespace#enabled = 1
 "     \ 't'  : 'term',
 "     \ }
 
-"let g:airline_theme='badwolf'
+"let g:airline_theme = 'solarized'
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
 
@@ -92,3 +119,4 @@ let g:ctrlp_custom_ignore = {
     \ }
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
+
