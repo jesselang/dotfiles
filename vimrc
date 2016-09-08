@@ -74,6 +74,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/Ada-Bundle'
 Plug 'pearofducks/ansible-vim'
 Plug 'alfredodeza/pytest.vim'
+Plug 'lambdatoast/elm.vim'
+Plug 'fatih/vim-go'
+Plug 'clausreinke/typescript-tools.vim', { 'do': 'npm install' }
 
 " Add plugins to &runtimepath
 call plug#end()
