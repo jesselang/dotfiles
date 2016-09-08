@@ -73,6 +73,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/Ada-Bundle'
 Plug 'pearofducks/ansible-vim'
+Plug 'alfredodeza/pytest.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -124,4 +125,10 @@ let g:ctrlp_custom_ignore = {
     \ }
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
+
+let mapleader=" "
+" Pytest
+nmap <silent><Leader>f <Esc>:Pytest file looponfail<CR>
+nmap <silent><Leader>c <Esc>:Pytest class looponfail<CR>
+nmap <silent><Leader>m <Esc>:Pytest method looponfail<CR>
 
