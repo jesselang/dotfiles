@@ -22,6 +22,10 @@ set smarttab
 set softtabstop=4
 set tabstop=4
 
+set list
+set listchars=
+set listchars=extends:‥,precedes:‥,tab:>-,trail:·
+
 set mouse=a
 
 autocmd BufRead,BufNewFile *.css setlocal ts=2 sw=2 sts=2
