@@ -90,3 +90,7 @@ source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 export PYTHONDONTWRITEBYTECODE=1
 
+# AWS cli
+if [ -d /usr/local/share/zsh/site-functions ]; then
+    source /usr/local/share/zsh/site-functions/_aws
+fi
