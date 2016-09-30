@@ -82,11 +82,13 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/projects
-export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
-source /usr/local/bin/virtualenvwrapper_lazy.sh
 
+
+for ZSHRC in ~/.zshrc.d/*.zsh; do
+    if [ -r $ZSHRC ]; then
+        source $ZSHRC
+    fi
+done
 
 # AWS cli
 if [ -d /usr/local/share/zsh/site-functions ]; then
