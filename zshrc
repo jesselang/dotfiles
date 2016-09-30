@@ -53,7 +53,6 @@ plugins=(ssh-agent git python)
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -88,7 +87,6 @@ export PROJECT_HOME=$HOME/projects
 export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
 source /usr/local/bin/virtualenvwrapper_lazy.sh
 
-export PYTHONDONTWRITEBYTECODE=1
 
 # AWS cli
 if [ -d /usr/local/share/zsh/site-functions ]; then
