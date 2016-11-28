@@ -62,6 +62,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
+Plug 'altercation/vim-colors-solarized'
 Plug 'kien/ctrlp.vim'
 Plug 'mitsuhiko/vim-python-combined'
 Plug 'othree/html5.vim'
@@ -70,7 +72,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'mitsuhiko/vim-jinja'
-Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/Ada-Bundle'
 Plug 'pearofducks/ansible-vim'
@@ -91,6 +92,7 @@ let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 colorscheme solarized
 
+let g:airline_powerline_fonts = 1
 let g:airline_detect_modified = 1
 let g:airline_detect_paste = 1
 let g:airline#extensions#whitespace#enabled = 1
@@ -109,19 +111,19 @@ let g:airline#extensions#whitespace#enabled = 1
 "     \ }
 
 "let g:airline_theme = 'solarized'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '◀'
+"et g:airline_left_sep = '▶'
+"let g:airline_right_sep = '◀'
 
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
+"if !exists('g:airline_symbols')
+"    let g:airline_symbols = {}
+"endif
 
-let g:airline_symbols.branch = '⎇ '
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_symbols.linecolumn_prefix = '¶ '
+"let g:airline_symbols.branch = '⎇ '
+"let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.whitespace = 'Ξ'
+"let g:airline_symbols.linecolumn_prefix = '¶ '
 
-let g:airline_section_z = '0x%-4B %3p%% '.g:airline_symbols.linecolumn_prefix.'%3l:%3c'
+"let g:airline_section_z = '0x%-4B %3p%% '.g:airline_symbols.linecolumn_prefix.'%3l:%3c'
 
 " ctrlp (fuzzy file/buf matching)
 let g:ctrlp_custom_ignore = {
