@@ -1,0 +1,2 @@
+# darwin specific aliases
+alias reload-camera='sudo killall AppleCameraAssistant;sudo killall VDCAssistant'

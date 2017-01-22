@@ -1,0 +1,12 @@
+# load OS specific aliases
+if [[ -f $HOME/.profiles/_os/$OS_NAME/aliases ]]; then
+    source $HOME/.profiles/_os/$OS_NAME/aliases
+fi
+
+# load profile aliases
+if [[ -f $HOME/.current/aliases ]]; then
+    source $HOME/.current/aliases
+fi
+
+# finally, these are useful everywhere
+alias tf=terraform
