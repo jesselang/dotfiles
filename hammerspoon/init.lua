@@ -110,6 +110,8 @@ hs.hotkey.bind(mash, "V", function()
 --     end
 end)
 
+require('push2talk').new({'ctrl', 'alt'}, 'M', 'U'):start()
+
 hs.hotkey.bind(mash, "R", function()
     hs.reload()
 end)
