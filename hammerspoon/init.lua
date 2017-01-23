@@ -74,9 +74,10 @@ end)
 hs.hotkey.bind(mash, "T", function()
     app = hs.application("ttrack")
 
-    app:focus()
-    hs.eventtap.keyStrokes("summary task time today\n")
-    hs.eventtap.keyStrokes("status\n")
+    if app:unminimize():focus() then
+        hs.eventtap.keyStrokes("summary task time today\n")
+        hs.eventtap.keyStrokes("status\n")
+    end
 end)
 
 hs.hotkey.bind(mash, "W", function()
