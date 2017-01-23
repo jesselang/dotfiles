@@ -86,6 +86,9 @@ if [[ -f ~/.aliases ]]; then
     source ~/.aliases
 fi
 
+if [[ -f ~/.current/zshrc ]]; then
+    source ~/.current/zshrc
+fi
 
 for ZSHRC in ~/.zsh/rc.d/*.zsh; do
     if [ -r $ZSHRC ]; then
