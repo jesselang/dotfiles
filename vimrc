@@ -79,6 +79,7 @@ Plug 'alfredodeza/pytest.vim'
 Plug 'lambdatoast/elm.vim'
 Plug 'fatih/vim-go'
 Plug 'clausreinke/typescript-tools.vim', { 'do': 'npm install' }
+Plug 'hashivim/vim-terraform'
 
 " Add plugins to &runtimepath
 call plug#end()
