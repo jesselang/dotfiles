@@ -34,6 +34,7 @@ autocmd BufRead,BufNewFile *.jinja setlocal ft=htmljinja ts=2 sw=2 sts=2
 autocmd BufRead,BufNewFile *.js setlocal ts=2 sw=2 sts=2
 autocmd BufRead,BufNewFile *.less setlocal ft=less ts=2 sw=2 sts=2
 autocmd BufRead,BufNewFile *.md setlocal ft=markdown ts=2 sw=2 sts=2
+autocmd BufRead,BufNewFile *.tf setlocal ts=2 sw=2 sts=2
 autocmd BufRead,BufNewFile *.tst setlocal syntax=perl
 autocmd BufRead,BufNewFile *.txt setlocal printoptions+=number:n
 autocmd BufRead,BufNewFile *.scss setlocal ft=scss ts=2 sw=2 sts=2

@@ -10,3 +10,4 @@ fi
 
 # finally, these are useful everywhere
 alias tf=terraform
+alias tg=terragrunt
