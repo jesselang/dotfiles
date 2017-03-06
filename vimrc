@@ -62,7 +62,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'edkolev/tmuxline.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'kien/ctrlp.vim'
 Plug 'mitsuhiko/vim-python-combined'
@@ -89,8 +88,8 @@ call plug#end()
 
 "colorscheme inkpot
 
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
+"let g:solarized_termcolors=256
+"let g:solarized_termtrans=1
 colorscheme solarized
 
 let g:airline_powerline_fonts = 1
