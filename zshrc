@@ -1,3 +1,10 @@
+umask 0077
+
+if [[ $- != *i* ]]; then
+    # non-interactive, return now
+    return
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
