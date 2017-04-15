@@ -41,6 +41,7 @@ autocmd BufRead,BufNewFile *.scss setlocal ft=scss ts=2 sw=2 sts=2
 autocmd BufRead,BufNewFile *.yaml setlocal ft=yaml ts=2 sw=2 sts=2
 autocmd BufRead,BufNewFile *.yml setlocal ft=ansible ts=2 sw=2 sts=2
 
+autocmd BufRead,BufNewFile Jenkinsfile setlocal ft=groovy ts=4 sw=4 sts=4
 autocmd BufRead,BufNewFile Vagrantfile setlocal ft=ruby ts=2 sw=2 sts=2
 autocmd BufRead,BufNewFile Build* setlocal noexpandtab filetype=make syntax=make
 autocmd BufRead,BufNewFile [Mm]ake* setlocal noexpandtab filetype=make syntax=make
