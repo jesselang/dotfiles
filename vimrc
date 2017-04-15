@@ -105,7 +105,7 @@ Plug 'pearofducks/ansible-vim'
 Plug 'alfredodeza/pytest.vim'
 Plug 'lambdatoast/elm.vim'
 Plug 'fatih/vim-go'
-Plug 'clausreinke/typescript-tools.vim', { 'do': 'npm install' }
+Plug 'leafgarland/typescript-vim'
 Plug 'hashivim/vim-terraform'
 
 " Add plugins to &runtimepath
