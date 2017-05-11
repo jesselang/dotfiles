@@ -30,6 +30,8 @@ set mouse=a
 
 autocmd BufRead,BufNewFile *.css setlocal ts=2 sw=2 sts=2
 autocmd BufRead,BufNewFile *.html setlocal ts=2 sw=2 sts=2
+" really, google? tabs?!!
+autocmd BufRead,BufNewFile *.go setlocal listchars=tab:\|\ ,
 autocmd BufRead,BufNewFile *.jinja setlocal ft=htmljinja ts=2 sw=2 sts=2
 autocmd BufRead,BufNewFile *.js setlocal ts=2 sw=2 sts=2
 autocmd BufRead,BufNewFile *.less setlocal ft=less ts=2 sw=2 sts=2
@@ -120,6 +122,9 @@ call plug#end()
 "let g:solarized_termcolors=256
 "let g:solarized_termtrans=1
 colorscheme solarized
+
+" http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
+autocmd BufRead,BufNewFile *.go highlight SpecialKey ctermfg=238
 
 let g:airline_powerline_fonts = 1
 let g:airline_detect_modified = 1
