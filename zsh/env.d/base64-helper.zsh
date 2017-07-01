@@ -1,5 +1,6 @@
 # strip the trailing newline before encoding.
 # handy when passing selected text through vim
+# https://unix.stackexchange.com/questions/140727/how-can-i-delete-a-trailing-newline-in-bash
 b64encode() {
     if base64 --help | grep GNU &>/dev/null; then
         B64_NOWRAP="--wrap 0"
