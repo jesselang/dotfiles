@@ -8,6 +8,14 @@ if [[ -f $HOME/.current/aliases ]]; then
     source $HOME/.current/aliases
 fi
 
+# Special thanks to Cory LaNou
+alias gosrc='f=$(find `( CP=${PWD%/*}; while [ -n "$CP" ] ; do echo $CP; CP=${CP%/*}; done; echo / ) ` -mindepth 1 -maxdepth 1 -type f -name dev.env);source $f;echo "\$GOPATH=$GOPATH"'
+
 # finally, these are useful everywhere
 alias tf=terraform
-alias tg=terragrunt
+
+# https://github.com/kubernetes/kubernetes/issues/27308#issuecomment-309207951
+alias k='kubectl "--context=${KUBECTL_CONTEXT:-$(kubectl config current-context)}" ${KUBECTL_NAMESPACE/[[:alnum:]-]*/--namespace=${KUBECTL_NAMESPACE}}'
+
+# zsh/rc.d/kubectl.zsh
+alias kset='kubectl_set'
