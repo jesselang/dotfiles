@@ -95,8 +95,6 @@ if [[ -f ~/.aliases ]]; then
     source ~/.aliases
 fi
 
-source <(kcn --alias)
-
 autoload -Uz compinit
 compinit
 
@@ -116,3 +114,5 @@ done
 if [ -d /usr/local/share/zsh/site-functions ]; then
     source /usr/local/share/zsh/site-functions/_aws
 fi
+
+source <(kcn --alias)
