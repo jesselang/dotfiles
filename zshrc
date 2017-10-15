@@ -95,6 +95,8 @@ if [[ -f ~/.aliases ]]; then
     source ~/.aliases
 fi
 
+source <(kcn --alias)
+
 autoload -Uz compinit
 compinit
 

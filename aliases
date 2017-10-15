@@ -14,10 +14,4 @@ alias gosrc='f=$(find `( CP=${PWD%/*}; while [ -n "$CP" ] ; do echo $CP; CP=${CP
 # finally, these are useful everywhere
 alias tf=terraform
 
-# https://github.com/kubernetes/kubernetes/issues/27308#issuecomment-309207951
-KUBECTL_BIN=$(which kubectl)
-alias kubectl="${KUBECTL_BIN} \"--context=\${KUBECTL_CONTEXT:-\$(${KUBECTL_BIN} config current-context)}\" \${KUBECTL_NAMESPACE/[[:alnum:]-]*/--namespace=\${KUBECTL_NAMESPACE}}"
-unset KUBECTL_BIN
-
 alias k=kubectl
-
