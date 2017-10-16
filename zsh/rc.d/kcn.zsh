@@ -16,6 +16,8 @@ kcn() {
 examples:
   ${0} minikube      # change to default namespace in minikube context
   ${0} . kube-public # change namespace in current context
+  ${0} . -           # return to previous namespace in current context
+  ${0} -             # return to previous context and namespace
   ${0} --clear       # clear context and namespace variables
 EOD
         fi
@@ -29,13 +31,18 @@ alias kubectl="kubectl \"--context=\${KUBECTL_CONTEXT:-\$(\kubectl config curren
 EOF
     else
         alias kubectl >/dev/null || echo "warning: kubectl alias not installed; add 'source <(kcn --alias)' to .zshrc" >&2
-        local _prev_context=${KUBECTL_CONTEXT}
-        local _prev_namespace=${KUBECTL_NAMESPACE}
+
+        local _current_context=${KUBECTL_CONTEXT}
+        local _current_namespace=${KUBECTL_NAMESPACE}
+
         local _context_list=($(\kubectl config view -o template \
             --template="{{range .contexts}}{{.name}} {{end}}"))
         if [[ ${1} == '.' ]]; then
             KUBECTL_CONTEXT=${KUBECTL_CONTEXT:-$(\kubectl config current-context)}
             KUBECTL_NAMESPACE=${KUBECTL_NAMESPACE:-default}
+        elif [[ ${1} == '-' ]]; then
+            KUBECTL_CONTEXT=${kcn_prev_context[1]:-$(\kubectl config current-context)}
+            KUBECTL_NAMESPACE=${kcn_prev_context[2]:-default}
         elif [[ ! ${_context_list[(r)${1}]} ]]; then
             echo "error: context ${1} not found" >&2
             return 2
@@ -44,17 +51,28 @@ EOF
             KUBECTL_NAMESPACE=${KUBECTL_NAMESPACE:-default}
         fi
 
+        if [[ -n ${_current_context} && ${_current_context} != ${KUBECTL_CONTEXT} ]]; then
+            kcn_prev_context=(${_current_context} ${_current_namespace})
+        fi
+
         if [[ -n ${2} ]]; then
+            if [[ ${2} == '-' ]]; then
+                2=${kcn_prev_namespace:-default}
+            fi
             local _namespace_list=($(\kubectl --context=${KUBECTL_CONTEXT} \
                 get namespaces -o template \
                 --template="{{range .items}}{{.metadata.name}} {{end}}"))
             if [[ ! ${_namespace_list[(r)$2]} ]]; then
                 echo "error: namespace ${2} not found in context ${KUBECTL_CONTEXT}" >&2
-                KUBECTL_CONTEXT=${_prev_context}
-                KUBECTL_NAMESPACE=${_prev_namespace}
+                KUBECTL_CONTEXT=${_current_context}
+                KUBECTL_NAMESPACE=${_current_namespace}
                 return 3
             else
                 KUBECTL_NAMESPACE=${2}
+
+                if [[ -n ${_current_namespace} && ${_current_context} == ${KUBECTL_CONTEXT} ]]; then
+                    kcn_prev_namespace=${_current_namespace}
+                fi
             fi
         fi
     fi
