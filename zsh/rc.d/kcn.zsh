@@ -1,5 +1,3 @@
-[[ -z _kubectl ]] && source <(\kubectl completion zsh)
-
 kcn() {
     if [[ ${#} -le 0 || ${@[(r)--help]} ]]; then
         echo "usage: ${0} [--clear|--help] <context> [<namespace>]" >&2
@@ -27,9 +25,10 @@ EOD
     elif [[ ${@[(r)--alias]} ]]; then
 # https://github.com/kubernetes/kubernetes/issues/27308#issuecomment-309207951
         cat <<\EOF
-alias kubectl="\kubectl \"--context=\${KUBECTL_CONTEXT:-\$(\kubectl config current-context)}\" \${KUBECTL_NAMESPACE/[[:alnum:]-]*/--namespace=\${KUBECTL_NAMESPACE}}"
+alias kubectl="kubectl \"--context=\${KUBECTL_CONTEXT:-\$(\kubectl config current-context)}\" \${KUBECTL_NAMESPACE/[[:alnum:]-]*/--namespace=\${KUBECTL_NAMESPACE}}"
 EOF
     else
+        alias kubectl >/dev/null || echo "warning: kubectl alias not installed; add 'source <(kcn --alias)' to .zshrc" >&2
         local _prev_context=${KUBECTL_CONTEXT}
         local _prev_namespace=${KUBECTL_NAMESPACE}
         local _context_list=($(\kubectl config view -o template \
