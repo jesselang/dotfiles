@@ -1,4 +1,5 @@
 export PYTHONDONTWRITEBYTECODE=1 # *.pyc files are ugly.
+export GOPATH=$HOME/dev/go
 
 # OS flags
 export OS_NAME=${$(uname -s):l}
