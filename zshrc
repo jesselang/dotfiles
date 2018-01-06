@@ -1,3 +1,4 @@
+export GIVEN_UMASK=${GIVEN_UMASK:-$(umask)}
 umask 0077
 
 if [[ $- != *i* ]]; then
