@@ -118,7 +118,7 @@ for ZSHRC in ~/.zsh/rc.d/*.zsh; do
 done
 
 # AWS cli
-if [ -d /usr/local/share/zsh/site-functions ]; then
+if [[ -d /usr/local/share/zsh/site-functions/_aws ]]; then
     source /usr/local/share/zsh/site-functions/_aws
 fi
 
