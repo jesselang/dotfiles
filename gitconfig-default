@@ -1,0 +1,30 @@
+[user]
+	name = Jesse Lang
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[core]
+	editor = vim
+[alias]
+	co = checkout
+	ci = commit
+	ff = pull --ff-only
+	log-ps = log --patch-with-stat
+	log-1 = log --oneline
+	log-graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	mb-log = !sh -c 'git log $(git merge-base $1 $2)..$2' -
+	mb-log-ps = !sh -c 'git log-ps $(git merge-base $1 $2)..$2' -
+	mb-diff = !sh -c 'git diff $(git merge-base $1 $2)..$2' -
+	prune-merged = !sh -c 'git branch -d $(git branch --merged | grep -v master)' -
+[push]
+	default = simple
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+#[url "https://"]
+#    insteadOf = git://
+
