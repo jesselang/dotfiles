@@ -1,0 +1,1 @@
+$HOME/.gitconfig-generate
