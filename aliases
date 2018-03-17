@@ -13,5 +13,5 @@ alias gosrc='f=$(find `( CP=${PWD%/*}; while [ -n "$CP" ] ; do echo $CP; CP=${CP
 
 # finally, these are useful everywhere
 alias tf=terraform
-
 alias k=kubectl
+alias wb=whalebrew
