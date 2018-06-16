@@ -103,6 +103,124 @@ hs.hotkey.bind(mash, "W", function()
     hs.wifi.setPower(not details.power)
 end)
 
+local displays = {
+    builtin     = "Color LCD",
+    thunderbolt = "Thunderbolt Display",
+    hp          = "HP E242",
+    soyo        = "MB24W"
+}
+
+local layouts = {
+    {
+        name = "office",
+        displays = {
+            {
+                displays.thunderbolt,
+                displays.hp
+            }
+        },
+        layout = {
+            {"Slack", nil, displays.hp, '[0,0,100,60]'},
+            -- when outlook is too big, it lands in the wrong display
+            {"Microsoft Outlook", "VTASExchange", displays.hp, '[0,60,100,100]'},
+            {"Meeting Center", "WebEx Meeting Center", nil, hs.layout.left75},
+            {"iTerm2", "ttrack", nil, '[75,75,100,100]'},
+            {"Google Chrome", "~Hangouts", nil, hs.layout.left50}
+        }
+    },
+    {
+        name = "default",
+        layout = {
+            {"Slack", nil, nil, '[50,0,100,100]'},
+            {"Microsoft Outlook", "VTASExchange", nil, '[0,0,50,100]'},
+            -- chrome is assigned to a different screen
+            {"Google Chrome", "~Hangouts", nil, hs.layout.maximized}
+
+        }
+    },
+}
+
+function findLayout()
+    local screens = {}
+
+    for _, v in ipairs(hs.screen.allScreens()) do
+        table.insert(screens, v:name())
+        --log:d(v:name())
+    end
+
+    table.sort(screens)
+
+    for _, layout in ipairs(layouts) do
+        if not layout.displays then
+            -- default layout, must match
+            return layout
+        else
+            for _, display_list in ipairs(layout.displays) do
+                if #display_list ~= #screens then
+                    break
+                end
+
+                table.sort(display_list)
+
+                for i, _ in ipairs(display_list) do
+                    if display_list[i] ~= screens[i] then
+                        notmatch = true
+
+                        break
+                    end
+                end
+
+                if notmatch then
+                    break
+                end
+
+                return layout
+            end
+        end
+    end
+
+    error("default layout without screens not defined")
+end
+
+local _current_layout = nil
+
+function applyLayout(layout)
+    hs.layout.apply(layout.layout,
+        -- window title matching
+        function(windowTitle, layoutWindowTitle)
+            if layoutWindowTitle:sub(1, 1) == '~' then
+                return not string.match(
+                    windowTitle,
+                    layoutWindowTitle:sub(2)
+                )
+            else
+                return string.match(windowTitle, layoutWindowTitle)
+            end
+        end
+    )
+    _current_layout = layout.name
+    hs.alert.show('layout: ' .. layout.name)
+end
+
+function layout(event)
+    local l = findLayout()
+    log:d(l.name)
+    if not event or _current_layout ~= l.name then
+        applyLayout(l)
+    end
+end
+-- window layouts
+local screen = hs.screen.watcher.new(function()
+    layout(true)
+end)
+
+hs.hotkey.bind(mash, "L", function()
+    layout(false)
+end)
+
+
+screen:start()
+
 local vpn_connection = "US2 (ROS)"
 
 hs.hotkey.bind(mash, "V", function()
