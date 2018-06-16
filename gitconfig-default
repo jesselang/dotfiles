@@ -11,6 +11,9 @@
 	co = checkout
 	ci = commit
 	ff = pull --ff-only
+	br = branch
+	st = status
+	force = push --force-with-lease
 	log-ps = log --patch-with-stat
 	log-1 = log --oneline
 	log-graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
