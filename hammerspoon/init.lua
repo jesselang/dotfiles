@@ -92,6 +92,7 @@ hs.hotkey.bind(mash, "T", function()
     app = hs.application("ttrack")
 
     if app:unminimize():focus() then
+        hs.eventtap.keyStroke({"ctrl"}, "c")
         hs.eventtap.keyStrokes("summary task time today\n")
         hs.eventtap.keyStrokes("status\n")
     end
@@ -127,8 +128,7 @@ hs.hotkey.bind(mash, "V", function()
 --     end
 end)
 
-require('push2talk').new({'ctrl', 'alt'}, 'M', 'U'):start()
-
+require('push2talk').new({'ctrl', 'alt'}, ';', 'q'):start()
 
 -- hs.notify.new({title="Hammerspoon", informativeText="Config loaded"}):send()
 hs.alert.show(' Hammerspoon Ready')
