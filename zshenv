@@ -6,7 +6,6 @@ export GOPATH=$HOME/dev/go
 export OS_NAME=${$(uname -s):l}
 export OS_${OS_NAME:u}=1
 
-export PATH=$PATH:/usr/local/go/bin:$HOME/bin:$GOPATH/bin
 
 for ZSHENV in ~/.zsh/env.d/*.zsh; do
     if [ -r $ZSHENV ]; then
@@ -17,3 +16,6 @@ done
 if [[ -f ~/.current/zshenv ]]; then
     source ~/.current/zshenv
 fi
+
+# GOPATH may be reset in .current, so wait until things settle to update PATH
+export PATH=$PATH:/usr/local/go/bin:$HOME/bin:$GOPATH/bin
