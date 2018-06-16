@@ -15,3 +15,4 @@ alias gosrc='f=$(find `( CP=${PWD%/*}; while [ -n "$CP" ] ; do echo $CP; CP=${CP
 alias tf=terraform
 alias k=kubectl
 alias wb=whalebrew
+alias dc=docker-compose
