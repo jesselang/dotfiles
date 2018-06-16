@@ -107,6 +107,11 @@ compinit
 
 unsetopt share_history # shared history is annoying
 
+# vi style editing
+bindkey -v
+bindkey '^R' history-incremental-pattern-search-backward
+
+
 if [[ -f ~/.current/zshrc ]]; then
     source ~/.current/zshrc
 fi
