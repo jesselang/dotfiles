@@ -1,3 +1,5 @@
+set nocompatible
+
 syntax on
 filetype plugin indent on
 scriptencoding utf-8
@@ -41,7 +43,7 @@ autocmd BufRead,BufNewFile *.tst setlocal syntax=perl
 autocmd BufRead,BufNewFile *.txt setlocal printoptions+=number:n
 autocmd BufRead,BufNewFile *.scss setlocal ft=scss ts=2 sw=2 sts=2
 autocmd BufRead,BufNewFile *.yaml setlocal ft=yaml ts=2 sw=2 sts=2
-autocmd BufRead,BufNewFile *.yml setlocal ft=ansible ts=2 sw=2 sts=2
+autocmd BufRead,BufNewFile *.yml setlocal ft=yaml ts=2 sw=2 sts=2
 
 autocmd BufRead,BufNewFile Jenkinsfile setlocal ft=groovy ts=4 sw=4 sts=4
 autocmd BufRead,BufNewFile Vagrantfile setlocal ft=ruby ts=2 sw=2 sts=2
@@ -110,6 +112,8 @@ Plug 'lambdatoast/elm.vim'
 Plug 'fatih/vim-go'
 Plug 'leafgarland/typescript-vim'
 Plug 'hashivim/vim-terraform'
+" in case of nasty 3-way merging, pull in splice
+"Plug 'sjl/splice.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -161,7 +165,7 @@ let g:airline#extensions#whitespace#enabled = 1
 
 " ctrlp (fuzzy file/buf matching)
 let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/]migrations$',
+    \ 'dir': '\v[\/](migrations|node_modules|vendor)$',
     \ }
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
@@ -172,3 +176,6 @@ nmap <silent><Leader>f <Esc>:Pytest file looponfail<CR>
 nmap <silent><Leader>c <Esc>:Pytest class looponfail<CR>
 nmap <silent><Leader>m <Esc>:Pytest method looponfail<CR>
 
+" vim-go
+" go get golang.org/x/tools/cmd/goimports
+let g:go_fmt_command = "goimports"
