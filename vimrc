@@ -172,6 +172,7 @@ let g:ctrlp_custom_ignore = {
     \ }
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_show_hidden = 1
 
 let mapleader=" "
 " Pytest
@@ -181,4 +182,4 @@ nmap <silent><Leader>m <Esc>:Pytest method looponfail<CR>
 
 " vim-go
 " go get golang.org/x/tools/cmd/goimports
-let g:go_fmt_command = "goimports"
+"let g:go_fmt_command = "goimports"
