@@ -128,3 +128,22 @@ if [[ -d /usr/local/share/zsh/site-functions/_aws ]]; then
 fi
 
 source <(kcn --alias)
+
+# create an empty tls secret
+function kube-tls()
+{
+    [[ -z $1 ]] && echo "error: specify tls secret name" >&2
+    openssl req -x509 -newkey rsa:2048 -nodes -days 1 \
+        -subj "/C=XX/ST=XX/L=Temporary/O=Temporary/CN=temporary" \
+        -keyout /tmp/key.pem -out /tmp/cert.pem
+    cat - <<EOF | k apply -f -
+apiVersion: v1
+kind: Secret
+type: kubernetes.io/tls
+data:
+  tls.crt: $(base64 /tmp/cert.pem; rm /tmp/cert.pem)
+  tls.key: $(base64 /tmp/key.pem; rm /tmp/key.pem)
+metadata:
+  name: $1
+EOF
+}
