@@ -147,3 +147,9 @@ metadata:
   name: $1
 EOF
 }
+
+function show()
+{
+    echo "% $@"
+    eval "$@"
+}
