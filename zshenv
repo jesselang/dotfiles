@@ -3,6 +3,7 @@ export PYTHONDONTWRITEBYTECODE=1 # *.pyc files are ugly.
 # TODO: find a better spot for this
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export CGO_ENABLED=0 # static binaries by default, thankyouverymuch
+export GO111MODULE=on # use golang modules
 export GOPATH=$HOME/dev/go
 
 # OS flags
