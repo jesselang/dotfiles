@@ -115,6 +115,8 @@ Plug 'fatih/vim-go'
 Plug 'leafgarland/typescript-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'mustache/vim-mustache-handlebars'
+Plug 'editorconfig/editorconfig-vim'
+
 " in case of nasty 3-way merging, pull in splice
 "Plug 'sjl/splice.vim'
 
