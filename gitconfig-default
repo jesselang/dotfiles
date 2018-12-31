@@ -10,6 +10,7 @@
 [alias]
 	co = checkout
 	ci = commit
+	d = diff
 	ff = pull --ff-only
 	br = branch
 	st = status
