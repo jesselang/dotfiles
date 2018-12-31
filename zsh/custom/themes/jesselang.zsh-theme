@@ -170,8 +170,13 @@ prompt_virtualenv() {
 }
 
 prompt_kubectl() {
+  # TODO: remove when kcn.zsh is EOL'd
   if [[ -n $KUBECTL_CONTEXT || -n $KUBECTL_NAMESPACE ]]; then
     prompt_segment cyan black "☸ $KUBECTL_CONTEXT/$KUBECTL_NAMESPACE"
+  fi
+
+  if [[ -n $KCN_CONTEXT || -n $KCN_NAMESPACE ]]; then
+    prompt_segment cyan black "☸ $KCN_CONTEXT/$KCN_NAMESPACE"
   fi
 }
 

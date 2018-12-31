@@ -1,4 +1,4 @@
-kcn() {
+kcnsh() {
     if [[ ${#} -le 0 || ${@[(r)--help]} ]]; then
         echo "usage: ${0} [--clear|--help] <context> [<namespace>]" >&2
         if [[ ! ${@[(r)--help]} ]]; then
@@ -78,7 +78,7 @@ EOF
     fi
 }
 
-_kcn() {
+_kcnsh() {
     _arguments '--clear[clear context/namespace]' '--help[show usage]' ':context:->context' ':namespace:->namespace'
     case ${state} in
         context)
@@ -98,4 +98,4 @@ _kcn() {
     esac
 }
 
-compdef _kcn kcn
+compdef _kcnsh kcnsh
