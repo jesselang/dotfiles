@@ -119,9 +119,9 @@ local layouts = {
             }
         },
         layout = {
-            {"Slack", nil, displays.builtin, '[0,0,40,100]'},
+            {"Slack", nil, displays.builtin, '[0,0,47,100]'},
             -- when outlook is too big, it lands in the wrong display
-            {"Microsoft Outlook", nil, displays.builtin, '[40,0,100,100]'},
+            {"Microsoft Outlook", nil, displays.builtin, '[47,0,100,100]'},
             {"iTerm2", "ttrack", nil, '[75,75,100,100]'},
             {"Google Chrome", "~Hangouts", displays.dell, hs.layout.maximized}
         }
