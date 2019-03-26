@@ -105,9 +105,8 @@ end)
 
 local displays = {
     builtin     = "Color LCD",
-    thunderbolt = "Thunderbolt Display",
-    hp          = "HP E242",
-    soyo        = "MB24W"
+    dell        = "DELL U2718Q", -- office
+    soyo        = "MB24W" -- home
 }
 
 local layouts = {
@@ -115,24 +114,23 @@ local layouts = {
         name = "office",
         displays = {
             {
-                displays.thunderbolt,
-                displays.hp
+                displays.builtin,
+                displays.dell
             }
         },
         layout = {
-            {"Slack", nil, displays.hp, '[0,0,100,60]'},
+            {"Slack", nil, displays.builtin, '[0,0,40,100]'},
             -- when outlook is too big, it lands in the wrong display
-            {"Microsoft Outlook", "VTASExchange", displays.hp, '[0,60,100,100]'},
-            {"Meeting Center", "WebEx Meeting Center", nil, hs.layout.left75},
+            {"Microsoft Outlook", nil, displays.builtin, '[40,0,100,100]'},
             {"iTerm2", "ttrack", nil, '[75,75,100,100]'},
-            {"Google Chrome", "~Hangouts", nil, hs.layout.left50}
+            {"Google Chrome", "~Hangouts", displays.dell, hs.layout.maximized}
         }
     },
     {
         name = "default",
         layout = {
             {"Slack", nil, nil, '[50,0,100,100]'},
-            {"Microsoft Outlook", "VTASExchange", nil, '[0,0,50,100]'},
+            {"Microsoft Outlook", nil, nil, '[0,0,50,100]'},
             -- chrome is assigned to a different screen
             {"Google Chrome", "~Hangouts", nil, hs.layout.maximized}
 
@@ -145,7 +143,7 @@ function findLayout()
 
     for _, v in ipairs(hs.screen.allScreens()) do
         table.insert(screens, v:name())
-        --log:d(v:name())
+        log:d(v:name())
     end
 
     table.sort(screens)
