@@ -1,4 +1,5 @@
 export EDITOR=vim
+export LESS="--raw --no-init --quit-if-one-screen"
 export PYTHONDONTWRITEBYTECODE=1 # *.pyc files are ugly.
 # TODO: find a better spot for this
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
