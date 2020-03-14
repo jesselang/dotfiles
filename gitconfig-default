@@ -7,10 +7,13 @@
 	status = auto
 [core]
 	editor = vim
+	pager = less --tabs=1,5 -R
 [alias]
+	amend = commit --amend
 	co = checkout
 	ci = commit
 	d = diff
+	dc = diff --cached
 	ff = pull --ff-only
 	br = branch
 	st = status
@@ -22,7 +25,8 @@
 	mb-log = !sh -c 'git log $(git merge-base $1 $2)..$2' -
 	mb-log-ps = !sh -c 'git log-ps $(git merge-base $1 $2)..$2' -
 	mb-diff = !sh -c 'git diff $(git merge-base $1 $2)..$2' -
-	prune-merged = !sh -c 'git branch -d $(git branch --merged | grep -v master)' -
+	prune-merged = !git branch --merged | grep -v master | xargs -tn 1 git branch -d
+#	prune-remote = !git fetch --prune --quiet origin && git branch -r --merged origin/master | grep -v origin/master | sed 's/origin\///' | xargs -n 1 git push --delete origin
 [push]
 	default = simple
 [filter "lfs"]
