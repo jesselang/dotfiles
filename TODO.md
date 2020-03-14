@@ -1,0 +1,1 @@
+- On Mac, need to copy font to ~/Library/Fonts
