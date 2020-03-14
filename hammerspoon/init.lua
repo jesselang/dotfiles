@@ -119,9 +119,10 @@ local layouts = {
             }
         },
         layout = {
-            {"Slack", nil, displays.builtin, '[0,0,47,100]'},
+            {"Slack", nil, displays.builtin, '[47,0,100,100]'},
             -- when outlook is too big, it lands in the wrong display
-            {"Microsoft Outlook", nil, displays.builtin, '[47,0,100,100]'},
+            {"Microsoft Outlook", "~Reminder", displays.builtin, '[0,0,47,100]'},
+            {"Microsoft Outlook", "Reminder", displays.builtin, '[25,85,47,100]'},
             {"iTerm2", "ttrack", nil, '[75,75,100,100]'},
             {"Google Chrome", "~Hangouts", displays.dell, hs.layout.maximized}
         }
@@ -130,7 +131,8 @@ local layouts = {
         name = "default",
         layout = {
             {"Slack", nil, nil, '[50,0,100,100]'},
-            {"Microsoft Outlook", nil, nil, '[0,0,50,100]'},
+            {"Microsoft Outlook", "~Reminder", nil, '[0,0,50,100]'},
+            {"Microsoft Outlook", "Reminder", nil, '[90,90,100,100]'},
             -- chrome is assigned to a different screen
             {"Google Chrome", "~Hangouts", nil, hs.layout.maximized}
 
@@ -143,7 +145,7 @@ function findLayout()
 
     for _, v in ipairs(hs.screen.allScreens()) do
         table.insert(screens, v:name())
-        log:d(v:name())
+        -- log:d(v:name())
     end
 
     table.sort(screens)
