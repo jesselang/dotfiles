@@ -16,3 +16,4 @@ alias tf=terraform
 alias k=kubectl
 alias wb=whalebrew
 alias dc=docker-compose
+alias pc="pre-commit run --all-files"
