@@ -127,7 +127,7 @@ if [[ -d /usr/local/share/zsh/site-functions/_aws ]]; then
     source /usr/local/share/zsh/site-functions/_aws
 fi
 
-source <(kcn env --init)
+#source <(kcn env --init)
 #source <(kcnsh --alias)
 
 function show()
