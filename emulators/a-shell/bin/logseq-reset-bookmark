@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+
+if [ ! -d ~logseq ]; then
+  deletemark logseq
+  pickFolder
+  renamemark Documents logseq
+fi
+

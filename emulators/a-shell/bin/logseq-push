@@ -1,0 +1,17 @@
+#!/bin/sh
+set -eu
+
+repo=${1:-}
+message=${2:-added by logseq-push}
+
+if [ -z $repo ]; then 
+  echo "usage: logseq-push <repo> [<commit-message>]" >&2
+  exit 1
+fi
+
+logseq-reset-bookmark
+
+cd $repo
+lg2 add --verbose .
+(set +e; lg2 commit -m "$message")
+lg2 push

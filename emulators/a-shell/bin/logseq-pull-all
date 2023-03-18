@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+
+logseq-reset-bookmark
+
+for entry in ~logseq/*; do
+  if [ -d $entry ]; then
+    echo $entry
+    cd $entry
+    lg2 pull
+  fi
+done
