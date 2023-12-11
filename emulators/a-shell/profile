@@ -1,0 +1,4 @@
+export GIT_HOME=$HOME/Documents
+
+alias vi=vim
+alias git=lg2

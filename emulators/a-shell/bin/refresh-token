@@ -1,0 +1,13 @@
+#!/bin/sh
+set -eu
+
+BROWSER=googlechrome open https://github.com/settings/tokens?type=beta
+
+read -p "Enter your GitHub token: " -r TOKEN
+if [ -z "$TOKEN" ]; then
+	echo "error: token is empty" >&2
+	exit 1
+fi
+
+sed -i '' -e "s/password = .*/password = $TOKEN/" "$GIT_HOME/.gitconfig"
+
