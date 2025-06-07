@@ -94,9 +94,9 @@ endif
 call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'altercation/vim-colors-solarized'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+"Plug 'altercation/vim-colors-solarized'
 Plug 'kien/ctrlp.vim'
 Plug 'mitsuhiko/vim-python-combined'
 Plug 'othree/html5.vim'
@@ -130,15 +130,15 @@ call plug#end()
 
 "let g:solarized_termcolors=256
 "let g:solarized_termtrans=1
-colorscheme solarized
+"colorscheme solarized
 
 " http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
 autocmd BufRead,BufNewFile *.go highlight SpecialKey ctermfg=238
 
-let g:airline_powerline_fonts = 1
-let g:airline_detect_modified = 1
-let g:airline_detect_paste = 1
-let g:airline#extensions#whitespace#enabled = 1
+"let g:airline_powerline_fonts = 1
+"let g:airline_detect_modified = 1
+"let g:airline_detect_paste = 1
+"let g:airline#extensions#whitespace#enabled = 1
 
 " let g:airline_mode_map = {
 "     \ '__' : '----',
