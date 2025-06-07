@@ -8,9 +8,6 @@ if [[ -f $HOME/.current/aliases ]]; then
     source $HOME/.current/aliases
 fi
 
-# Special thanks to Cory LaNou
-alias gosrc='f=$(find `( CP=${PWD%/*}; while [ -n "$CP" ] ; do echo $CP; CP=${CP%/*}; done; echo / ) ` -mindepth 1 -maxdepth 1 -type f -name dev.env);source $f;echo "\$GOPATH=$GOPATH"'
-
 # finally, these are useful everywhere
 alias tf=terraform
 alias k=kubectl
