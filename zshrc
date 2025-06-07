@@ -71,7 +71,9 @@ plugins=(
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-source $ZSH/oh-my-zsh.sh
+if [[ -r "$ZSH/oh-my-zsh.sh" ]]; then
+    source "$ZSH/oh-my-zsh.sh"
+fi
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -98,7 +100,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [[ -f ~/.aliases ]]; then
+if [[ -r ~/.aliases ]]; then
     source ~/.aliases
 fi
 
@@ -112,7 +114,7 @@ bindkey -v
 bindkey '^R' history-incremental-pattern-search-backward
 
 
-if [[ -f ~/.current/zshrc ]]; then
+if [[ -r ~/.current/zshrc ]]; then
     source ~/.current/zshrc
 fi
 
