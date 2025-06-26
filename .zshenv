@@ -11,7 +11,7 @@ export PATH=$PATH:$GOPATH/bin:$HOME/bin
 export OS_NAME=${$(uname -s):l}
 export OS_${OS_NAME:u}=1
 
-for ZSHENV in ~/.zsh/env.d/*.zsh ~/.profiles/_os/$OS_NAME/zshenv; do
+for ZSHENV in ~/.zsh/env.d/*.zsh ~/.local/share/dotfiles/profiles/_os/$OS_NAME/zshenv; do
     if [[ -r $ZSHENV ]]; then
         source $ZSHENV
     fi

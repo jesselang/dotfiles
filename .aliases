@@ -1,0 +1,19 @@
+alias dotfiles="git --git-dir=$HOME/.local/share/dotfiles/bare-repo --work-tree=$HOME"
+alias dotfiles-uninstall="dotfiles ls-files -z | xargs -0 -I{} rm \"$HOME/{}\""
+
+# load OS specific aliases
+if [[ -f $HOME/.local/share/dotfiles/profiles/_os/$OS_NAME/aliases ]]; then
+    source $HOME/.local/share/dotfiles/profiles/_os/$OS_NAME/aliases
+fi
+
+# load profile aliases
+if [[ -f $HOME/.current/aliases ]]; then
+    source $HOME/.current/aliases
+fi
+
+# finally, these are useful everywhere
+alias tf=terraform
+alias k=kubectl
+alias wb=whalebrew
+alias dc=docker-compose
+alias pc="pre-commit run --all-files"

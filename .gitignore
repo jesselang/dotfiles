@@ -1,1 +1,33 @@
-.DS_Store
+# ignore all paths that don't start with a dot.
+/*
+!/.*
+
+# ignore MacOSX cruft
+/.CFUserTextEncoding
+/.DS_Store
+/.Trash/
+
+# ignore credentials
+/.gnupg/
+/.ssh/
+
+# ignore designated path for bare repo
+/.local/share/dotfiles/bare-repo/
+
+# ignore current profile
+/.current
+
+# ignore go installation
+/.local/go
+
+# ignore local state, caches etc.
+/.local/state/
+/.cache/
+
+# shell history and sessions
+/.*_history
+/.*_sessions/
+
+
+# ignore generated content
+/.gitconfig
