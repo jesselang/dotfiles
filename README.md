@@ -24,13 +24,28 @@ Bare repo setup
 mkdir -p ~/.local/share/dotfiles
 
 git clone --bare https://github.com/jesselang/dotfiles.git $HOME/.local/share/dotfiles/bare-repo
+
+# can we skip checkout in favor of restore?
 git --git-dir=$HOME/.local/share/dotfiles/bare-repo --work-tree=$HOME checkout
+
+# to restore after dotfiles-uninstall
+git --git-dir=$HOME/.local/share/dotfiles/bare-repo --work-tree=$HOME restore .
 ```
 
 Starting a new shell should provide a `dotfiles` alias to ease working with the
 repo and work tree:
 
 ```sh
+# use sparse checkout to avoid checking out docs and unused files.
+dotfiles sparse-checkout set --no-cone \
+  '/*' \
+  '!/.local/share/dotfiles/emulators' \
+  '!/*.md'
+
+# disable parse checkout to update docs, etc.
+dotfiles sparse-checkout disable
+
+# update your config before commiting changes
 dotfiles config user.email ...
 dotfiles ls-files
 dotfiles status
