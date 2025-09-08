@@ -39,8 +39,9 @@ repo and work tree:
 # use sparse checkout to avoid checking out docs and unused files.
 dotfiles sparse-checkout set --no-cone \
   '/*' \
-  '!/.local/share/dotfiles/emulators' \
-  '!/*.md'
+  '!/*.md' \ # exclude root-level docs
+           \ # (optional - exclude other paths that are emulator specific)
+  '!/.local/share/dotfiles/emulators'
 
 # disable parse checkout to update docs, etc.
 dotfiles sparse-checkout disable
