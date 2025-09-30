@@ -15,7 +15,14 @@ $HOME before proceeding with the base repo install method.
 cd path/to/dotfiles
 
 # find symlinks in $HOME that are sourced from dotfiles repo
-find $HOME -maxdepth 1 -type l -exec ls -l {} \; | grep $PWD | cut -d' ' -f 14 | xargs rm
+find "$HOME" -maxdepth 1 -type l -exec sh -c '
+  for f; do
+    tgt=$(readlink -f "$f" 2>/dev/null || readlink "$f")
+    case $tgt in
+      "$PWD"/*) echo "$f" ;;   # symlink points inside $PWD
+    esac
+  done
+' sh {} + | xargs rm
 ```
 
 Bare repo setup
